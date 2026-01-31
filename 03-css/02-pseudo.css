@@ -2,3 +2,13 @@
   width: 600px;
   margin: 40px auto;
 }
+
+/* use pseudo element to target part of an element */
+
+p::first-letter {
+  font-size: 3em;
+}
+
+p:hover {
+  background-color: lightskyblue;
+}

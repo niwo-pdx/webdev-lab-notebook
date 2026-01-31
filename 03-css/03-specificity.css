@@ -1,25 +1,49 @@
 /* Specificity Exercise */
 
+/* X - Y - Z 
+x = number of id selectors
+y = number of class, pseudo-class, and attribute selectors
+z = number element and pseudo-element selectors 
+
+In VS Code, can just hover over a selector to get an automatically generated #
+*/
+
+/* .list-item is a class, nav & a are element selectors 
+(0, 1, 2)*/
 nav .list-item > a {
   color: var(--purple);
 }
 
+/* # is an ID, :: is pseudo-element 
+(1, 0, 1)*/
 #main::first-letter {
   color: var(--purple);
 }
 
+/* input is element, [] means attribute 
+(0, 1, 1)*/
 input[type] {
   color: var(--purple);
 }
 
+/* section is an element, first-line is a pseudo element, .main is class 
+(0, 1, 2)*/
 section .main::first-line {
   color: var(--purple);
 }
 
-nav ul.menu li#first a:not([class='visited']) {
+/* #first is an id, nav, ul, li, a are elements; menu is a class, 
+not is a pseudo-class which is NOT included in specificity
+BUT, what's included in the parens is; attribute 
+(1, 2, 4) */
+nav ul.menu li#first a:not([class="visited"]) {
   color: var(--purple);
 }
 
+/* all elements. 
+note: this is bad CSS btw
+note x2: not a base 10 system! so 0-1-1 would be more specific than this
+(0, 0, 10) */
 div ol li ul li ol li ul li a {
   color: var(--purple);
 }
