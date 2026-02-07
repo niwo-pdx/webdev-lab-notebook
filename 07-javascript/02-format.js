@@ -4,7 +4,28 @@ const formatItems = (input) => {
   // for reference, see the MDN Number page:
   // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number
 
-  return input;
+  // reminder: number is a primitive wrapper object
+
+  /*  for (let i = 0; i < input.length; i++) {
+    console.log(input[i]);
+  }
+
+
+  // not one of the recommended ones
+  for (let i in input) {
+    console.log(i, input[i]);
+  }
+  */
+
+  let results = [];
+
+  // what we iterate on is the actual value (item in this case)
+  for (let item of input) {
+    // console.log(item.toFixed(3));
+    results.push(item.toFixed(3));
+  }
+
+  return results.join(", "); // the ", " gives the delimiter and space
 };
 
 console.log(formatItems([1, 4, 17, 26, 41]));
